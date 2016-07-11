@@ -1,0 +1,18 @@
+<resources>
+    <declare-styleable name="DonutProgress">
+        <attr format="float" name="donut_progress"/>
+        <attr format="float" name="donut_start_angle"/>
+        <attr format="integer" name="donut_max"/>
+        <attr format="color" name="donut_unfinished_color"/>
+        <attr format="color" name="donut_finished_color"/>
+        <attr format="dimension" name="donut_finished_stroke_width"/>
+        <attr format="dimension" name="donut_unfinished_stroke_width"/>
+        <attr format="string" name="donut_text"/>
+        <attr format="dimension" name="donut_text_size"/>
+        <attr format="color" name="donut_text_color"/>
+        <attr format="color" name="donut_background_color"/>
+        <attr format="string" name="donut_inner_bottom_text"/>
+        <attr format="dimension" name="donut_inner_bottom_text_size"/>
+        <attr format="color" name="donut_inner_bottom_text_color"/>
+    </declare-styleable>
+</resources>
