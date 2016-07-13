@@ -3,11 +3,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 // This is the library version used when deploying the artifact
-version = "1.0.1"
-group = "donutprogress"
+version = "1.0.0"
+group = "com.bikomobile"
 
-def siteUrl = 'https://github.com/javierugarte'
-def gitUrl = 'https://github.com/javierugarte/'
+def siteUrl = 'https://github.com/javierugarte/donut-progress-android'
+def gitUrl = 'https://github.com/javierugarte/donut-progress-android'
 
 android {
     compileSdkVersion 23
