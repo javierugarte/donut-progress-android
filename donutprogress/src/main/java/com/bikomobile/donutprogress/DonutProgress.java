@@ -301,23 +301,12 @@ public class DonutProgress extends View {
     /**
      * Utils
      */
-    /**
-     * Return
-     * @param resources this resource
-     * @param dp dp to transform
-     * @return float with this display
-     */
+
     public static float dp2px(Resources resources, float dp) {
         final float scale = resources.getDisplayMetrics().density;
         return  dp * scale + 0.5f;
     }
 
-    /**
-     * Return a
-     * @param resources this resource
-     * @param sp this sp
-     * @return float with this display
-     */
     public static float sp2px(Resources resources, float sp){
         final float scale = resources.getDisplayMetrics().scaledDensity;
         return sp * scale;
