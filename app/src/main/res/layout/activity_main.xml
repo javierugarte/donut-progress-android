@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="@dimen/activity_margin"
     tools:context=".MainActivity">
 
@@ -38,9 +39,9 @@
     </RelativeLayout>
 
     <GridLayout
+        android:id="@+id/grid_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rl_top"
         android:rowCount="2"
         android:columnCount="3"
         android:orientation="horizontal"
@@ -75,5 +76,74 @@
 
     </GridLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="With animation"/>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/rl_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <com.bikomobile.donutprogress.DonutProgress
+            android:id="@+id/donut_progress_anim_1"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_margin="20dp"
+            custom:donut_finished_stroke_width="5dp"
+            custom:donut_unfinished_stroke_width="5dp"
+            custom:donut_text_size="14sp"
+            custom:donut_start_angle="-90"
+            custom:donut_text_color="@color/colorTextPrimary"
+            custom:donut_unfinished_color="@color/colorPrimary"
+            custom:donut_finished_color="@color/colorAccent"
+            />
+
+        <com.bikomobile.donutprogress.DonutProgress
+            android:id="@+id/donut_progress_anim_2"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_margin="20dp"
+            custom:donut_finished_stroke_width="5dp"
+            custom:donut_unfinished_stroke_width="5dp"
+            custom:donut_text_size="14sp"
+            custom:donut_start_angle="-90"
+            custom:donut_text_color="@color/colorTextPrimary"
+            custom:donut_unfinished_color="@color/colorPrimary"
+            custom:donut_finished_color="@color/colorAccent"
+            />
+
+        <com.bikomobile.donutprogress.DonutProgress
+            android:id="@+id/donut_progress_anim_3"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_margin="20dp"
+            custom:donut_finished_stroke_width="5dp"
+            custom:donut_unfinished_stroke_width="5dp"
+            custom:donut_text_size="14sp"
+            custom:donut_start_angle="-90"
+            custom:donut_text_color="@color/colorTextPrimary"
+            custom:donut_unfinished_color="@color/colorPrimary"
+            custom:donut_finished_color="@color/colorAccent"
+            />
+
+        <com.bikomobile.donutprogress.DonutProgress
+            android:id="@+id/donut_progress_anim_4"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_margin="20dp"
+            custom:donut_finished_stroke_width="5dp"
+            custom:donut_unfinished_stroke_width="5dp"
+            custom:donut_text_size="14sp"
+            custom:donut_start_angle="-90"
+            custom:donut_text_color="@color/colorTextPrimary"
+            custom:donut_unfinished_color="@color/colorPrimary"
+            custom:donut_finished_color="@color/colorAccent"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
