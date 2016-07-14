@@ -1,10 +1,11 @@
 Donut Progress
 =======
+ [ ![Download](https://api.bintray.com/packages/javiergm/maven/DonutProgress/images/download.svg) ](https://bintray.com/javiergm/maven/DonutProgress/_latestVersion)
 
 - Using Gradle
 
 ```groovy
-    compile 'com.bikomobile:donutprogress:1.0.0'
+    compile 'com.bikomobile:donutprogress:1.0.1'
 ```
 
 - Using Maven
