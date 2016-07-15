@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SeekBar;
 
 import com.bikomobile.donutprogress.DonutProgress;
@@ -50,7 +51,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // With animation
-        showDonutProgress(70, R.id.donut_progress_anim_1, new Timer());
+        showDonutProgress();
+        View btnReset = findViewById(R.id.btn_reset_anim);
+        if (btnReset != null) {
+            btnReset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDonutProgress();
+                }
+            });
+        }
+
+    }
+
+    private void showDonutProgress() {
+        showDonutProgress(35, R.id.donut_progress_anim_1, new Timer());
         showDonutProgress(98, R.id.donut_progress_anim_2, new Timer());
         showDonutProgress(55, R.id.donut_progress_anim_3, new Timer());
         showDonutProgress(45, R.id.donut_progress_anim_4, new Timer());
@@ -61,23 +76,7 @@ public class MainActivity extends AppCompatActivity {
         if (donutProgressAnim != null) {
             donutProgressAnim.setText(percent + "%");
 
-            timer.schedule(new TimerTask() {
-                private Handler handler = new Handler(Looper.getMainLooper());
-
-                @Override
-                public void run() {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (donutProgressAnim.getProgress() < percent) {
-                                donutProgressAnim.setProgress(donutProgressAnim.getProgress() + 1);
-                            } else {
-                                timer.cancel();
-                            }
-                        }
-                    });
-                }
-            }, 0, 20);
+            donutProgressAnim.setProgress(percent, true);
 
         }
     }

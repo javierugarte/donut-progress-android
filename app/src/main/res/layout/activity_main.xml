@@ -79,6 +79,12 @@
         android:layout_height="wrap_content"
         android:text="With animation"/>
 
+    <Button
+        android:id="@+id/btn_reset_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset animation"/>
+
     <LinearLayout
         android:id="@+id/rl_animation"
         android:layout_width="match_parent"
