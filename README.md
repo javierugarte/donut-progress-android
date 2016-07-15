@@ -5,7 +5,7 @@ Donut Progress
 - Using Gradle
 
 ```groovy
-    compile 'com.bikomobile:donutprogress:1.0.1'
+    compile 'com.bikomobile:donutprogress:1.0.2'
 ```
 
 - Using Maven
@@ -26,13 +26,18 @@ How to use this library
 - java
 
 ```java
+
 	int percent = 40;
 	        
 	DonutProgress donutProgress = (DonutProgress) 
 			findViewById(R.id.donut_progress);
 			
 	donutProgress.setText(percent + "%");
+	
 	donutProgress.setProgress(percent);
+	// or if you want animation progress
+	donutProgress.setProgress(percent, true);
+	
 ```
 
 - xml
@@ -50,38 +55,6 @@ How to use this library
 	            custom:donut_unfinished_color="@color/colorPrimary"
 	            custom:donut_finished_color="@color/colorAccent"
 	            />
-```
-
-
-- DonutProgress with animation
-
-```java
-    final DonutProgress donutProgressAnim = (DonutProgress)
-                findViewById(R.id.donut_progress_anim);
-        
-    final int percent = 78;
-    final Timer timer = new Timer();
-
-    donutProgressAnim.setText(percent + "%");
-
-    timer.schedule(new TimerTask() {
-        private Handler handler = new Handler(Looper.getMainLooper());
-
-        @Override
-        public void run() {
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    if (donutProgressAnim.getProgress() < percent) {
-                        donutProgressAnim.setProgress
-                                (donutProgressAnim.getProgress() + 1);
-                    } else {
-                        timer.cancel();
-                    }
-                }
-            });
-        }
-    }, 0, 20);
 ```
 
 Contribute
