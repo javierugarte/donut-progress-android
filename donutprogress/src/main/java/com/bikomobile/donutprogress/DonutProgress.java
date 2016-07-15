@@ -179,7 +179,7 @@ public class DonutProgress extends View {
      * as start angle modulo 360.
      *
      * The arc is drawn clockwise. An angle of 0 degrees correspond to the
-     * geometric angle of 0 degrees (3 o'clock on a watch.)
+     * 12 o'clock on a watch.
      *
      * @param startAngle Starting angle (in degrees) where the arc begins
      */
@@ -351,8 +351,8 @@ public class DonutProgress extends View {
 
         float innerCircleRadius = (getWidth() - Math.min(finishedStrokeWidth, unfinishedStrokeWidth) + Math.abs(finishedStrokeWidth - unfinishedStrokeWidth)) / 2f;
         canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, innerCircleRadius, innerCirclePaint);
-        canvas.drawArc(finishedOuterRect, startAngle, getProgressAngle(), false, finishedPaint);
-        canvas.drawArc(unfinishedOuterRect, getProgressAngle() + startAngle, 360 - getProgressAngle(), false, unfinishedPaint);
+        canvas.drawArc(finishedOuterRect, startAngle - 90, getProgressAngle(), false, finishedPaint);
+        canvas.drawArc(unfinishedOuterRect, getProgressAngle() + startAngle - 90, 360 - getProgressAngle(), false, unfinishedPaint);
 
         if (!TextUtils.isEmpty(text)) {
             float textHeight = textPaint.descent() + textPaint.ascent();
