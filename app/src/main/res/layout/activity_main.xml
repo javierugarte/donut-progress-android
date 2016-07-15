@@ -21,7 +21,6 @@
             custom:donut_finished_stroke_width="5dp"
             custom:donut_unfinished_stroke_width="5dp"
             custom:donut_text_size="14sp"
-            custom:donut_start_angle="-90"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_unfinished_color="@color/colorPrimary"
             custom:donut_finished_color="@color/colorAccent"
@@ -55,7 +54,6 @@
             custom:donut_finished_stroke_width="5dp"
             custom:donut_unfinished_stroke_width="5dp"
             custom:donut_text_size="14sp"
-            custom:donut_start_angle="-90"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_unfinished_color="@color/colorPrimary"
             custom:donut_finished_color="@color/colorAccent"
@@ -81,6 +79,12 @@
         android:layout_height="wrap_content"
         android:text="With animation"/>
 
+    <Button
+        android:id="@+id/btn_reset_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset animation"/>
+
     <LinearLayout
         android:id="@+id/rl_animation"
         android:layout_width="match_parent"
@@ -96,7 +100,6 @@
             custom:donut_finished_stroke_width="5dp"
             custom:donut_unfinished_stroke_width="5dp"
             custom:donut_text_size="14sp"
-            custom:donut_start_angle="-90"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_unfinished_color="@color/colorPrimary"
             custom:donut_finished_color="@color/colorAccent"
@@ -110,7 +113,6 @@
             custom:donut_finished_stroke_width="5dp"
             custom:donut_unfinished_stroke_width="5dp"
             custom:donut_text_size="14sp"
-            custom:donut_start_angle="-90"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_unfinished_color="@color/colorPrimary"
             custom:donut_finished_color="@color/colorAccent"
@@ -124,7 +126,6 @@
             custom:donut_finished_stroke_width="5dp"
             custom:donut_unfinished_stroke_width="5dp"
             custom:donut_text_size="14sp"
-            custom:donut_start_angle="-90"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_unfinished_color="@color/colorPrimary"
             custom:donut_finished_color="@color/colorAccent"
@@ -138,7 +139,6 @@
             custom:donut_finished_stroke_width="5dp"
             custom:donut_unfinished_stroke_width="5dp"
             custom:donut_text_size="14sp"
-            custom:donut_start_angle="-90"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_unfinished_color="@color/colorPrimary"
             custom:donut_finished_color="@color/colorAccent"

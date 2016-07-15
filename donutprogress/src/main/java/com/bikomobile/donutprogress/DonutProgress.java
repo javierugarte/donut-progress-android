@@ -8,11 +8,16 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Parcelable;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DonutProgress extends View {
     private Paint finishedPaint;
@@ -20,6 +25,8 @@ public class DonutProgress extends View {
     private Paint innerCirclePaint;
     protected Paint textPaint;
     protected Paint innerBottomTextPaint;
+
+    protected Timer timer;
 
     private RectF finishedOuterRect = new RectF();
     private RectF unfinishedOuterRect = new RectF();
@@ -179,7 +186,7 @@ public class DonutProgress extends View {
      * as start angle modulo 360.
      *
      * The arc is drawn clockwise. An angle of 0 degrees correspond to the
-     * geometric angle of 0 degrees (3 o'clock on a watch.)
+     * 12 o'clock on a watch.
      *
      * @param startAngle Starting angle (in degrees) where the arc begins
      */
@@ -205,12 +212,59 @@ public class DonutProgress extends View {
         return this.text;
     }
 
+    /**
+     * Sets the progress value of the DonutProgress.
+     * By default, animation is disable
+     * @param progress ref android.R.styleable#DonutProgress_donut_progress
+     */
     public void setProgress(int progress) {
+        setProgress(progress, false);
+    }
+
+    /**
+     * Sets the progress value of the DonutProgress.
+     * @param progress ref android.R.styleable#DonutProgress_donut_progress
+     * @param animation if there is animation in progress circle
+     */
+    public void setProgress(int progress, boolean animation) {
         this.progress = progress;
         if (this.progress > getMax()) {
             this.progress %= getMax();
         }
-        invalidate();
+
+        if (animation) {
+            startAnimation();
+        } else {
+            invalidate();
+        }
+    }
+
+    private void startAnimation() {
+
+        final int finalProgress = getProgress();
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            private Handler handler = new Handler(Looper.getMainLooper());
+
+            int initProgress = 0;
+
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        if (initProgress < finalProgress) {
+                            initProgress++;
+                            setProgress(initProgress);
+                        } else {
+                            timer.cancel();
+                        }
+                    }
+                });
+            }
+        }, 0, 15);
     }
 
     public int getMax() {
@@ -351,8 +405,8 @@ public class DonutProgress extends View {
 
         float innerCircleRadius = (getWidth() - Math.min(finishedStrokeWidth, unfinishedStrokeWidth) + Math.abs(finishedStrokeWidth - unfinishedStrokeWidth)) / 2f;
         canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, innerCircleRadius, innerCirclePaint);
-        canvas.drawArc(finishedOuterRect, startAngle, getProgressAngle(), false, finishedPaint);
-        canvas.drawArc(unfinishedOuterRect, getProgressAngle() + startAngle, 360 - getProgressAngle(), false, unfinishedPaint);
+        canvas.drawArc(finishedOuterRect, startAngle - 90, getProgressAngle(), false, finishedPaint);
+        canvas.drawArc(unfinishedOuterRect, getProgressAngle() + startAngle - 90, 360 - getProgressAngle(), false, unfinishedPaint);
 
         if (!TextUtils.isEmpty(text)) {
             float textHeight = textPaint.descent() + textPaint.ascent();
@@ -413,4 +467,5 @@ public class DonutProgress extends View {
         }
         super.onRestoreInstanceState(state);
     }
+
 }
