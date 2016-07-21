@@ -19,23 +19,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final DonutProgress donutProgressCustom = (DonutProgress) findViewById(R.id.donut_progress_custom);
-
         final DonutProgress donutProgress1 = (DonutProgress) findViewById(R.id.donut_progress_1);
-
-
         final DonutProgress donutProgress2 = (DonutProgress) findViewById(R.id.donut_progress_2);
-        donutProgress2.setProgress(40);
-
+        final DonutProgress donutProgress3 = (DonutProgress) findViewById(R.id.donut_progress_3);
+        final DonutProgress donutProgress4 = (DonutProgress) findViewById(R.id.donut_progress_4);
 
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         if (seekBar != null) {
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    donutProgressCustom.setProgress(progress);
+
                     donutProgress1.setProgress(progress);
+                    donutProgress1.setText(progress + "%");
+
                     donutProgress2.setProgress(progress);
+                    donutProgress2.setText(progress + "%");
+
+                    donutProgress3.setProgress(progress);
+
+                    donutProgress4.setProgress(progress);
+                    donutProgress4.setText(progress + "%");
                 }
 
                 @Override
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         if (donutProgressAnim != null) {
             donutProgressAnim.setText(percent + "%");
 
-            donutProgressAnim.setProgress(percent, true);
+            donutProgressAnim.setProgress(percent, 20);
 
         }
     }
