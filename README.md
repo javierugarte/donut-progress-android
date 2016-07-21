@@ -2,10 +2,23 @@ Donut Progress
 =======
  [ ![Download](https://api.bintray.com/packages/javiergm/maven/DonutProgress/images/download.svg) ](https://bintray.com/javiergm/maven/DonutProgress/_latestVersion)
 
+## Captures
+
+Normal
+
+![MainImage](https://raw.githubusercontent.com/javierugarte/donut-progress-android/master/captures/donutprogress_types.png)
+
+With animation
+
+![animation demo](https://raw.githubusercontent.com/javierugarte/donut-progress-android/master/captures/donutprogress_animation.gif)
+
+## Download
+
+
 - Using Gradle
 
 ```groovy
-    compile 'com.bikomobile:donutprogress:1.0.2'
+    compile 'com.bikomobile:donutprogress:1.1.0'
 ```
 
 - Using Maven
@@ -14,14 +27,14 @@ Donut Progress
     <dependency>
         <groupId>com.bikomobile</groupId>
         <artifactId>donutprogress</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <type>pom</type>
     </dependency>
 ```
 
 
-How to use this library
-=======
+## How to use this library
+
 
 - java
 
@@ -29,14 +42,13 @@ How to use this library
 
 	int percent = 40;
 	        
-	DonutProgress donutProgress = (DonutProgress) 
-			findViewById(R.id.donut_progress);
+	DonutProgress donutProgress = (DonutProgress) findViewById(R.id.donut_progress);
 			
 	donutProgress.setText(percent + "%");
 	
 	donutProgress.setProgress(percent);
 	// or if you want animation progress
-	donutProgress.setProgress(percent, true);
+	donutProgress.setProgress(percent, 20);
 	
 ```
 
@@ -50,18 +62,16 @@ How to use this library
 	            custom:donut_finished_stroke_width="5dp"
 	            custom:donut_unfinished_stroke_width="5dp"
 	            custom:donut_text_size="14sp"
-	            custom:donut_start_angle="-90"
 	            custom:donut_text_color="@color/colorTextPrimary"
 	            custom:donut_unfinished_color="@color/colorPrimary"
 	            custom:donut_finished_color="@color/colorAccent"
 	            />
 ```
 
-Contribute
-=======
+## Contribute
 
-About me
-=======
+## About me
+
 ## License
 
 ```
