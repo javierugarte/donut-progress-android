@@ -2,10 +2,23 @@ Donut Progress
 =======
  [ ![Download](https://api.bintray.com/packages/javiergm/maven/DonutProgress/images/download.svg) ](https://bintray.com/javiergm/maven/DonutProgress/_latestVersion)
 
+## Captures
+
+Normal
+
+![MainImage](https://raw.githubusercontent.com/javierugarte/donut-progress-android/master/captures/donutprogress_types.png)
+
+With animation
+
+![animation demo](https://raw.githubusercontent.com/javierugarte/donut-progress-android/master/captures/donutprogress_animation.gif)
+
+## Download
+
+
 - Using Gradle
 
 ```groovy
-    compile 'com.bikomobile:donutprogress:1.0.2'
+    compile 'com.bikomobile:donutprogress:1.1.0'
 ```
 
 - Using Maven
@@ -14,14 +27,14 @@ Donut Progress
     <dependency>
         <groupId>com.bikomobile</groupId>
         <artifactId>donutprogress</artifactId>
-        <version>1.0.2</version>
+        <version>1.1.0</version>
         <type>pom</type>
     </dependency>
 ```
 
 
-How to use this library
-=======
+## How to use this library
+
 
 - java
 
@@ -29,14 +42,13 @@ How to use this library
 
 	int percent = 40;
 	        
-	DonutProgress donutProgress = (DonutProgress) 
-			findViewById(R.id.donut_progress);
+	DonutProgress donutProgress = (DonutProgress) findViewById(R.id.donut_progress);
 			
 	donutProgress.setText(percent + "%");
 	
 	donutProgress.setProgress(percent);
 	// or if you want animation progress
-	donutProgress.setProgress(percent, true);
+	donutProgress.setProgress(percent, 20);
 	
 ```
 
@@ -50,18 +62,31 @@ How to use this library
 	            custom:donut_finished_stroke_width="5dp"
 	            custom:donut_unfinished_stroke_width="5dp"
 	            custom:donut_text_size="14sp"
-	            custom:donut_start_angle="-90"
 	            custom:donut_text_color="@color/colorTextPrimary"
 	            custom:donut_unfinished_color="@color/colorPrimary"
 	            custom:donut_finished_color="@color/colorAccent"
 	            />
 ```
 
-Contribute
-=======
+## Contribute
 
-About me
-=======
+## About me
 
-License
-=======
+## License
+
+```
+Copyright 2016 Javier González
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
