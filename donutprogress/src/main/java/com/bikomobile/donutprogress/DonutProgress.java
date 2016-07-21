@@ -218,28 +218,28 @@ public class DonutProgress extends View {
      * @param progress ref android.R.styleable#DonutProgress_donut_progress
      */
     public void setProgress(int progress) {
-        setProgress(progress, false);
+        setProgress(progress, 0);
     }
 
     /**
-     * Sets the progress value of the DonutProgress.
-     * @param progress ref android.R.styleable#DonutProgress_donut_progress
-     * @param animation if there is animation in progress circle
+     * Sets the progress value of the DonutProgress and launch animation.
+     * @param progress ref android.R.styleable#DonutProgress_donut_progress.
+     * @param period amount of time in milliseconds between subsequent executions.
      */
-    public void setProgress(int progress, boolean animation) {
+    public void setProgress(int progress, int period) {
         this.progress = progress;
         if (this.progress > getMax()) {
             this.progress %= getMax();
         }
 
-        if (animation) {
-            startAnimation();
+        if (period > 0) {
+            startAnimation(period);
         } else {
             invalidate();
         }
     }
 
-    private void startAnimation() {
+    private void startAnimation(int period) {
 
         final int finalProgress = getProgress();
 
@@ -258,13 +258,14 @@ public class DonutProgress extends View {
                         if (initProgress < finalProgress) {
                             initProgress++;
                             setProgress(initProgress);
+                            setText(initProgress + "%");
                         } else {
                             timer.cancel();
                         }
                     }
                 });
             }
-        }, 0, 15);
+        }, 0, period);
     }
 
     public int getMax() {
