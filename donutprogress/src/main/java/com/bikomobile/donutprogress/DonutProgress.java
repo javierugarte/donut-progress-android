@@ -31,7 +31,9 @@ public class DonutProgress extends View {
     private RectF finishedOuterRect = new RectF();
     private RectF unfinishedOuterRect = new RectF();
 
-    private String text;
+    private String text = "";
+    private String suffix = "";
+    private String prefix = "";
     private float textSize;
     private int textColor;
     private int innerBottomTextColor;
@@ -61,6 +63,8 @@ public class DonutProgress extends View {
 
     private static final String INSTANCE_STATE = "saved_instance";
     private static final String INSTANCE_TEXT = "text";
+    private static final String INSTANCE_SUFFIX= "suffix";
+    private static final String INSTANCE_PREFIX = "prefix";
     private static final String INSTANCE_TEXT_COLOR = "text_color";
     private static final String INSTANCE_TEXT_SIZE = "text_size";
     private static final String INSTANCE_INNER_BOTTOM_TEXT_SIZE = "inner_bottom_text_size";
@@ -133,6 +137,15 @@ public class DonutProgress extends View {
         if (attributes.getString(R.styleable.DonutProgress_donut_text) != null) {
             text = attributes.getString(R.styleable.DonutProgress_donut_text);
         }
+
+        if (attributes.getString(R.styleable.DonutProgress_donut_prefix) != null) {
+            prefix = attributes.getString(R.styleable.DonutProgress_donut_prefix);
+        }
+
+        if (attributes.getString(R.styleable.DonutProgress_donut_suffix) != null) {
+            suffix = attributes.getString(R.styleable.DonutProgress_donut_suffix);
+        }
+
         textColor = attributes.getColor(R.styleable.DonutProgress_donut_text_color, default_text_color);
         textSize = attributes.getDimension(R.styleable.DonutProgress_donut_text_size, default_text_size);
 
@@ -204,7 +217,7 @@ public class DonutProgress extends View {
      * @param text ref android.R.styleable#DonutProgress_donut_text
      */
     public void setText(String text) {
-        this.text = text;
+        this.text = prefix + text + suffix;
         invalidate();
     }
 
@@ -213,12 +226,36 @@ public class DonutProgress extends View {
     }
 
     /**
+     * Sets the suffix value of the text.
+     * @param suffix ref android.R.styleable#DonutProgress_donut_suffix
+     */
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
+    }
+
+    public String getSuffix() {
+        return this.suffix;
+    }
+
+    /**
+     * Sets the prefix value of the text.
+     * @param prefix ref android.R.styleable#DonutProgress_donut_prefix
+     */
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getPrefix() {
+        return this.prefix;
+    }
+
+    /**
      * Sets the progress value of the DonutProgress.
      * By default, animation is disable
      * @param progress ref android.R.styleable#DonutProgress_donut_progress
      */
     public void setProgress(int progress) {
-        setProgress(progress, 0);
+        setProgressWithAnimation(progress, 0);
     }
 
     /**
@@ -226,8 +263,9 @@ public class DonutProgress extends View {
      * @param progress ref android.R.styleable#DonutProgress_donut_progress.
      * @param period amount of time in milliseconds between subsequent executions.
      */
-    public void setProgress(int progress, int period) {
+    public void setProgressWithAnimation(int progress, int period) {
         this.progress = progress;
+        this.setText(""+progress);
         if (this.progress > getMax()) {
             this.progress %= getMax();
         }
@@ -258,7 +296,7 @@ public class DonutProgress extends View {
                         if (initProgress < finalProgress) {
                             initProgress++;
                             setProgress(initProgress);
-                            setText(initProgress + "%");
+                            setText(initProgress + "");
                         } else {
                             timer.cancel();
                         }
@@ -427,6 +465,8 @@ public class DonutProgress extends View {
         final Bundle bundle = new Bundle();
         bundle.putParcelable(INSTANCE_STATE, super.onSaveInstanceState());
         bundle.putString(INSTANCE_TEXT, getText());
+        bundle.putString(INSTANCE_PREFIX, getPrefix());
+        bundle.putString(INSTANCE_SUFFIX, getPrefix());
         bundle.putInt(INSTANCE_TEXT_COLOR, getTextColor());
         bundle.putFloat(INSTANCE_TEXT_SIZE, getTextSize());
         bundle.putFloat(INSTANCE_INNER_BOTTOM_TEXT_SIZE, getInnerBottomTextSize());
@@ -449,6 +489,8 @@ public class DonutProgress extends View {
         if(state instanceof Bundle) {
             final Bundle bundle = (Bundle) state;
             text = bundle.getString(INSTANCE_TEXT);
+            prefix = bundle.getString(INSTANCE_PREFIX);
+            suffix = bundle.getString(INSTANCE_SUFFIX);
             textColor = bundle.getInt(INSTANCE_TEXT_COLOR);
             textSize = bundle.getFloat(INSTANCE_TEXT_SIZE);
             innerBottomTextSize = bundle.getFloat(INSTANCE_INNER_BOTTOM_TEXT_SIZE);

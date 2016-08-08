@@ -8,6 +8,8 @@
         <attr format="dimension" name="donut_finished_stroke_width"/>
         <attr format="dimension" name="donut_unfinished_stroke_width"/>
         <attr format="string" name="donut_text"/>
+        <attr format="string" name="donut_prefix"/>
+        <attr format="string" name="donut_suffix"/>
         <attr format="dimension" name="donut_text_size"/>
         <attr format="color" name="donut_text_color"/>
         <attr format="color" name="donut_background_color"/>
