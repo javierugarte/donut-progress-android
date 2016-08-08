@@ -18,7 +18,7 @@ With animation
 - Using Gradle
 
 ```groovy
-    compile 'com.bikomobile:donutprogress:1.1.0'
+    compile 'com.bikomobile:donutprogress:1.2.0'
 ```
 
 - Using Maven
@@ -27,7 +27,7 @@ With animation
     <dependency>
         <groupId>com.bikomobile</groupId>
         <artifactId>donutprogress</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <type>pom</type>
     </dependency>
 ```
