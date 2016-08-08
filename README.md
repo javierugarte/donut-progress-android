@@ -44,11 +44,9 @@ With animation
 	        
 	DonutProgress donutProgress = (DonutProgress) findViewById(R.id.donut_progress);
 			
-	donutProgress.setText(percent + "%");
-	
 	donutProgress.setProgress(percent);
 	// or if you want animation progress
-	donutProgress.setProgress(percent, 20);
+	donutProgress.setProgressWithAnimation(percent, 20);
 	
 ```
 
@@ -61,6 +59,7 @@ With animation
 	            android:layout_height="54dp"
 	            custom:donut_finished_stroke_width="5dp"
 	            custom:donut_unfinished_stroke_width="5dp"
+                custom:donut_suffix="%"
 	            custom:donut_text_size="14sp"
 	            custom:donut_text_color="@color/colorTextPrimary"
 	            custom:donut_unfinished_color="@color/colorPrimary"
