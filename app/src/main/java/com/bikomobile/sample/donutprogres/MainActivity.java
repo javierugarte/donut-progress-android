@@ -31,15 +31,12 @@ public class MainActivity extends AppCompatActivity {
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                     donutProgress1.setProgress(progress);
-                    donutProgress1.setText(progress + "%");
 
                     donutProgress2.setProgress(progress);
-                    donutProgress2.setText(progress + "%");
 
                     donutProgress3.setProgress(progress);
 
                     donutProgress4.setProgress(progress);
-                    donutProgress4.setText(progress + "%");
                 }
 
                 @Override
@@ -69,18 +66,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showDonutProgress() {
-        showDonutProgress(35, R.id.donut_progress_anim_1, new Timer());
-        showDonutProgress(98, R.id.donut_progress_anim_2, new Timer());
-        showDonutProgress(55, R.id.donut_progress_anim_3, new Timer());
-        showDonutProgress(45, R.id.donut_progress_anim_4, new Timer());
+        showDonutProgress(35, R.id.donut_progress_anim_1);
+        showDonutProgress(98, R.id.donut_progress_anim_2);
+        showDonutProgress(55, R.id.donut_progress_anim_3);
+        showDonutProgress(45, R.id.donut_progress_anim_4);
     }
 
-    private void showDonutProgress(final int percent, int res, final Timer timer) {
+    private void showDonutProgress(final int percent, int res) {
         final DonutProgress donutProgressAnim = (DonutProgress) findViewById(res);
-        if (donutProgressAnim != null) {
-            donutProgressAnim.setText(percent + "%");
 
-            donutProgressAnim.setProgress(percent, 20);
+        if (donutProgressAnim != null) {
+            donutProgressAnim.setSuffix("%");
+            donutProgressAnim.setProgressWithAnimation(percent, 20);
 
         }
     }

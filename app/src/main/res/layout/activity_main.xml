@@ -23,11 +23,11 @@
             android:layout_margin="5dp"
             custom:donut_finished_color="#00BCD4"
             custom:donut_finished_stroke_width="5dp"
+            custom:donut_suffix="%"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="#FF9800"
-            custom:donut_unfinished_stroke_width="5dp"
-            />
+            custom:donut_unfinished_stroke_width="5dp" />
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_2"
@@ -37,11 +37,11 @@
             custom:donut_finished_color="#d50000"
             custom:donut_finished_stroke_width="10dp"
             custom:donut_start_angle="0"
+            custom:donut_suffix="%"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="#e0e0e0"
-            custom:donut_unfinished_stroke_width="10dp"
-            />
+            custom:donut_unfinished_stroke_width="10dp" />
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_3"
@@ -51,11 +51,11 @@
             custom:donut_finished_color="#00BCD4"
             custom:donut_finished_stroke_width="15dp"
             custom:donut_start_angle="0"
+            custom:donut_suffix="%"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="#9E9E9E"
-            custom:donut_unfinished_stroke_width="10dp"
-            />
+            custom:donut_unfinished_stroke_width="10dp" />
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_4"
@@ -65,11 +65,11 @@
             custom:donut_finished_color="#8BC34A"
             custom:donut_finished_stroke_width="8dp"
             custom:donut_start_angle="0"
+            custom:donut_suffix="%"
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="#795548"
-            custom:donut_unfinished_stroke_width="8dp"
-            />
+            custom:donut_unfinished_stroke_width="8dp" />
 
     </LinearLayout>
 
@@ -98,8 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_anim_1"
@@ -111,8 +110,7 @@
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="@color/colorPrimary"
-            custom:donut_unfinished_stroke_width="8dp"
-            />
+            custom:donut_unfinished_stroke_width="8dp" />
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_anim_2"
@@ -124,8 +122,7 @@
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="@color/colorPrimary"
-            custom:donut_unfinished_stroke_width="8dp"
-            />
+            custom:donut_unfinished_stroke_width="8dp" />
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_anim_3"
@@ -137,8 +134,7 @@
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="@color/colorPrimary"
-            custom:donut_unfinished_stroke_width="8dp"
-            />
+            custom:donut_unfinished_stroke_width="8dp" />
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/donut_progress_anim_4"
@@ -150,8 +146,7 @@
             custom:donut_text_color="@color/colorTextPrimary"
             custom:donut_text_size="14sp"
             custom:donut_unfinished_color="@color/colorPrimary"
-            custom:donut_unfinished_stroke_width="8dp"
-            />
+            custom:donut_unfinished_stroke_width="8dp" />
     </LinearLayout>
 
 
